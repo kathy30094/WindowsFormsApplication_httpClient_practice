@@ -114,7 +114,6 @@
             this.ID.Name = "ID";
             this.ID.Size = new System.Drawing.Size(100, 22);
             this.ID.TabIndex = 4;
-            this.ID.TextChanged += new System.EventHandler(this.ID_TextChanged);
             // 
             // listShowAll
             // 
