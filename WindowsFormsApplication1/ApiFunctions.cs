@@ -12,7 +12,7 @@ public class Employee
 }
 class ApiFunctions
 {
-    static string apiServerUrl = "http://localhost.fiddler:25197/api/employee/";
+    static string apiServerUrl = "http://localhost:25197/api/employee/";
 
     public static void DeleteEmployee(int id)  //使用deleteAsync
     {

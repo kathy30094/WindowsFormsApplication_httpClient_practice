@@ -31,6 +31,9 @@ namespace WindowsFormsApplication1
         private void search_Click(object sender, EventArgs e)
         {
             ApiFunctions.SearchEmployee(Convert.ToInt32(ID.Text));
+            //var task = ApiFunctions.SearchEmployee(Convert.ToInt32(ID.Text));
+            //Employee employee = new Employee();
+            //employee = task.Result;
         }
 
         private void showAll_Click(object sender, EventArgs e)
