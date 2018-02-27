@@ -36,11 +36,21 @@
             this.name = new System.Windows.Forms.TextBox();
             this.sex = new System.Windows.Forms.TextBox();
             this.ID = new System.Windows.Forms.TextBox();
-            this.listShowAll = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.lableShow = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // change
+            // 
+            this.change.Location = new System.Drawing.Point(380, 61);
+            this.change.Name = "change";
+            this.change.Size = new System.Drawing.Size(75, 23);
+            this.change.TabIndex = 0;
+            this.change.Text = "change";
+            this.change.UseVisualStyleBackColor = true;
+            this.change.Click += new System.EventHandler(this.change_Click);
             // 
             // add
             // 
@@ -51,18 +61,6 @@
             this.add.Text = "add";
             this.add.UseVisualStyleBackColor = true;
             this.add.Click += new System.EventHandler(this.add_Click);
-            //
-            //change
-            //
-            this.change.Location = new System.Drawing.Point(380, 61);
-            this.change.Name = "change";
-            this.change.Size = new  System.Drawing.Size(75, 23);
-            this.change.TabIndex = 0;
-            this.change.Text = "change";
-            this.change.UseVisualStyleBackColor = true;
-            this.change.Click += new System.EventHandler(this.change_Click);
-
-
             // 
             // delete
             // 
@@ -115,15 +113,6 @@
             this.ID.Size = new System.Drawing.Size(100, 22);
             this.ID.TabIndex = 4;
             // 
-            // listShowAll
-            // 
-            this.listShowAll.FormattingEnabled = true;
-            this.listShowAll.ItemHeight = 12;
-            this.listShowAll.Location = new System.Drawing.Point(13, 147);
-            this.listShowAll.Name = "listShowAll";
-            this.listShowAll.Size = new System.Drawing.Size(546, 364);
-            this.listShowAll.TabIndex = 7;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -151,15 +140,23 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "Sex :";
             // 
+            // lableShow
+            // 
+            this.lableShow.AutoSize = true;
+            this.lableShow.Location = new System.Drawing.Point(12, 162);
+            this.lableShow.Name = "lableShow";
+            this.lableShow.Size = new System.Drawing.Size(0, 12);
+            this.lableShow.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(570, 624);
+            this.Controls.Add(this.lableShow);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listShowAll);
             this.Controls.Add(this.ID);
             this.Controls.Add(this.sex);
             this.Controls.Add(this.name);
@@ -167,11 +164,12 @@
             this.Controls.Add(this.search);
             this.Controls.Add(this.delete);
             this.Controls.Add(this.add);
+            this.Controls.Add(this.change);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
-            this.Controls.Add(this.change);
+
         }
 
         #endregion
@@ -183,11 +181,11 @@
         private System.Windows.Forms.TextBox name;
         private System.Windows.Forms.TextBox sex;
         private System.Windows.Forms.TextBox ID;
-        private System.Windows.Forms.ListBox listShowAll;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button change;
+        private System.Windows.Forms.Label lableShow;
     }
 }
 

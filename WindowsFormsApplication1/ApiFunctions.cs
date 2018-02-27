@@ -37,26 +37,27 @@ class ApiFunctions
         }
     }   //end__PostEmployee
 
-    public static async Task<List<Employee>> ShowAllEmployees()
+    public static List<Employee> ShowAllEmployees()
     {
         //get方法
         HttpClient client = new HttpClient();
-        HttpResponseMessage response = await client.GetAsync(apiServerUrl);  ///////host中加入了 .fiddler，供Fiddler抓取封包
+        HttpResponseMessage response = client.GetAsync(apiServerUrl).Result;  ///////host中加入了 .fiddler，供Fiddler抓取封包
         response.EnsureSuccessStatusCode(); //如果回應為false會回傳錯誤
-        string responseBody = await response.Content.ReadAsStringAsync();
+        string responseBody = response.Content.ReadAsStringAsync().Result;
 
         List<Employee> EmployeeList = new List<Employee>();
         EmployeeList = JsonConvert.DeserializeObject<List<Employee>>(responseBody);  //將json轉換成Obj list
         return EmployeeList;
     }//show出所有的employee  //end__ShowAllEmployeesGET
 
-    public static async Task<Employee> SearchEmployee(int id)
+    public static Employee SearchEmployee(int id)
     {
         //get方法
         HttpClient client = new HttpClient();
-        HttpResponseMessage response = await client.GetAsync(apiServerUrl + id);
+        HttpResponseMessage response =  client.GetAsync(apiServerUrl + id).Result;
+        
         response.EnsureSuccessStatusCode(); //如果回應為false會回傳錯誤
-        string responseBody = await response.Content.ReadAsStringAsync();
+        string responseBody = response.Content.ReadAsStringAsync().Result;
 
         Employee employee = new Employee();
         employee = JsonConvert.DeserializeObject<Employee>(responseBody);  //將json轉換成Obj

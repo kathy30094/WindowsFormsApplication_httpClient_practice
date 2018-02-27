@@ -1,20 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Net.Http;
-using System.Runtime.Serialization.Json;
-using System.IO;
-using Newtonsoft.Json;
 
 
 
 
 namespace WindowsFormsApplication1
 {
- 
-    
+
+
     public partial class Form1 : Form
     {
         public Form1()
@@ -30,16 +24,21 @@ namespace WindowsFormsApplication1
 
         private void search_Click(object sender, EventArgs e)
         {
-            ApiFunctions.SearchEmployee(Convert.ToInt32(ID.Text));
-            //var task = ApiFunctions.SearchEmployee(Convert.ToInt32(ID.Text));
-            //Employee employee = new Employee();
-            //employee = task.Result;
+            Employee theEmployee = new Employee();
+            theEmployee = ApiFunctions.SearchEmployee(Convert.ToInt32(ID.Text));
+            CleanAllText();
+            lableShow.Text = theEmployee.ID + "   " + theEmployee.name + "   " + theEmployee.sex;
         }
 
         private void showAll_Click(object sender, EventArgs e)
         {
-
-            ApiFunctions.ShowAllEmployees();
+            List<Employee> employeeList = new List<Employee>();
+            employeeList = ApiFunctions.ShowAllEmployees();
+            CleanAllText();
+            foreach (var employee in employeeList)
+            {
+                lableShow.Text += employee.ID + "   " + employee.name + "   " + employee.sex+"\n";
+            }
         }
         private void delete_Click(object sender, EventArgs e)
         {
@@ -57,6 +56,7 @@ namespace WindowsFormsApplication1
             ID.Text = null;
             name.Text = null;
             sex.Text = null;
+            lableShow.Text = null;
         }
         
         
